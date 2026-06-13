@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowLeft,
   Send,
@@ -35,6 +35,9 @@ const WELCOME: Message = {
 
 export default function AIPage() {
   const [mode, setMode] = useState<"voice" | "text">("voice");
+  // Track whether the text panel has ever been opened so we lazy-mount it
+  const [hasOpenedText, setHasOpenedText] = useState(false);
+  const [isPersonaReady, setIsPersonaReady] = useState(false);
   const [messages, setMessages] = useState<Message[]>([WELCOME]);
   const [inputText, setInputText] = useState("");
   const [aiState, setAiState] = useState<
@@ -241,6 +244,7 @@ export default function AIPage() {
                 key={m}
                 onClick={() => {
                   setMode(m);
+                  if (m === "text") setHasOpenedText(true);
                   stopSpeaking();
                   stopListening();
                 }}
@@ -280,171 +284,185 @@ export default function AIPage() {
 
       {/* Main */}
       <main className="flex-1 flex flex-col items-center justify-center p-6 relative z-20">
-        <AnimatePresence mode="wait">
-          {mode === "voice" ? (
-            /* ── Voice interface ── */
-            <motion.div
-              key="voice"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="flex flex-col items-center justify-between h-[65vh] w-full max-w-md"
-            >
-              <div className="flex-1 flex flex-col items-center justify-center gap-4">
-                <button
-                  onClick={toggleVoiceListen}
-                  className="focus:outline-none"
-                  aria-label={
-                    isListening ? "Stop listening" : "Start listening"
-                  }
-                >
-                  <Persona
-                    state={displayState}
-                    variant="obsidian"
-                    className="size-56 sm:size-72"
-                  />
-                </button>
-                <p className="text-xs text-muted-foreground/50 font-mono tracking-wider">
-                  {displayState === "idle" ? "tap to speak" : ""}
-                </p>
-              </div>
-
-              {/* Subtitle box */}
-              <div className="w-full bg-white/5 backdrop-blur-md border border-cyan-500/40 rounded-2xl p-5 text-center shadow-2xl min-h-[120px] flex flex-col justify-center gap-2">
-                {displayState === "listening" && (
-                  <p className="text-cyan-400 font-mono text-xs uppercase tracking-wider animate-pulse">
-                    Listening...
-                  </p>
-                )}
-                {displayState === "thinking" && !isStreaming && (
-                  <div className="flex items-center justify-center gap-1">
-                    <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce" />
-                    <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce [animation-delay:0.2s]" />
-                    <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce [animation-delay:0.4s]" />
-                  </div>
-                )}
-                {displayState === "speaking" && (
-                  <p className="text-purple-400 font-mono text-xs uppercase tracking-wider">
-                    AI Twin Speaking...
-                  </p>
-                )}
-
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {displayState === "listening" &&
-                    (transcript ||
-                      "Say something like 'What projects have you built?'")}
-                  {displayState === "thinking" &&
-                    (isStreaming
-                      ? lastAiMessage?.text || "Building response..."
-                      : "Consulting knowledge base...")}
-                  {displayState === "speaking" && lastAiMessage?.text}
-                  {displayState === "idle" &&
-                    (lastAiMessage?.text || "Press the orb or speak to chat.")}
-                </p>
-              </div>
-            </motion.div>
-          ) : (
-            /* ── Text / chat interface ── */
-            <motion.div
-              key="text"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              className="w-full max-w-2xl h-[75vh] flex flex-col bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl"
-            >
-              {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-4">
-                {messages.map((msg) => (
-                  <div
-                    key={msg.id}
-                    className={cn(
-                      "flex flex-col max-w-[80%] rounded-2xl p-4 text-sm leading-relaxed",
-                      msg.sender === "user"
-                        ? "self-end bg-cyan-500 text-black rounded-tr-none font-medium"
-                        : "self-start bg-white/5 border border-cyan-500/40 text-foreground rounded-tl-none",
-                    )}
-                  >
-                    <p className="whitespace-pre-wrap">
-                      {msg.text}
-                      {/* Blinking cursor while this message is streaming */}
-                      {isStreaming &&
-                        msg === messages[messages.length - 1] &&
-                        msg.sender === "ai" && (
-                          <span className="inline-block w-0.5 h-4 bg-cyan-400 ml-0.5 animate-pulse align-middle" />
-                        )}
-                    </p>
-                    {msg.text && (
-                      <span
-                        className={cn(
-                          "text-[10px] mt-1.5 block",
-                          msg.sender === "user"
-                            ? "text-black/60"
-                            : "text-muted-foreground/60",
-                        )}
-                      >
-                        {msg.timestamp.toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
-                      </span>
-                    )}
-                  </div>
-                ))}
-
-                {/* Thinking indicator (only before first streaming chunk) */}
-                {aiState === "thinking" && !isStreaming && (
-                  <div className="self-start bg-white/5 border border-cyan-500/40 rounded-2xl rounded-tl-none p-4 max-w-[80%] flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce" />
-                    <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce [animation-delay:0.2s]" />
-                    <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce [animation-delay:0.4s]" />
-                  </div>
-                )}
-
-                <div ref={chatEndRef} />
-              </div>
-
-              {/* Input */}
-              <form
-                onSubmit={handleTextSubmit}
-                className="p-4 border-t border-white/5 bg-black/20 flex gap-2"
-              >
-                <input
-                  type="text"
-                  value={inputText}
-                  onChange={(e) => setInputText(e.target.value)}
-                  placeholder="Ask me about my projects, skills, or experience..."
-                  disabled={aiState === "thinking" || isStreaming}
-                  className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50"
-                />
-
-                {supported.speechRecognition && (
-                  <button
-                    type="button"
-                    onClick={toggleVoiceListen}
-                    className={cn(
-                      "p-3 rounded-xl border border-white/10 transition-all flex items-center justify-center",
-                      isListening
-                        ? "bg-cyan-500/20 text-cyan-400 border-cyan-500/55 animate-pulse"
-                        : "bg-white/5 text-muted-foreground hover:text-foreground hover:bg-white/10",
-                    )}
-                  >
-                    {isListening ? <MicOff size={18} /> : <Mic size={18} />}
-                  </button>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={
-                    aiState === "thinking" || isStreaming || !inputText.trim()
-                  }
-                  className="bg-cyan-500 text-black px-4 py-3 rounded-xl font-bold text-sm hover:bg-cyan-400 transition-colors flex items-center justify-center disabled:opacity-50 disabled:hover:bg-cyan-500"
-                >
-                  <Send size={18} />
-                </button>
-              </form>
-            </motion.div>
+        {/* ── Voice interface ──
+            Always kept in the DOM so the Persona's WebGL context and .riv
+            asset stay loaded. Switching to text mode just hides this section
+            instead of unmounting it, so coming back to voice is instant. */}
+        <div
+          className={cn(
+            "flex flex-col items-center justify-between h-[65vh] w-full max-w-md",
+            mode !== "voice" && "hidden",
           )}
-        </AnimatePresence>
+        >
+          <div className="flex-1 flex flex-col items-center justify-center gap-4">
+            <button
+              onClick={toggleVoiceListen}
+              className="focus:outline-none relative"
+              aria-label={isListening ? "Stop listening" : "Start listening"}
+            >
+              {/* Skeleton shown while Rive is initializing */}
+              {!isPersonaReady && (
+                <div className="absolute inset-0 rounded-full border border-cyan-500/20 bg-cyan-500/5 animate-pulse" />
+              )}
+              <Persona
+                state={displayState}
+                variant="obsidian"
+                className={cn(
+                  "size-56 sm:size-72 transition-opacity duration-500",
+                  !isPersonaReady && "opacity-0",
+                )}
+                onReady={() => setIsPersonaReady(true)}
+              />
+            </button>
+            <p className="text-xs text-muted-foreground/50 font-mono tracking-wider">
+              {!isPersonaReady
+                ? "Loading..."
+                : displayState === "idle"
+                  ? "tap to speak"
+                  : ""}
+            </p>
+          </div>
+
+          {/* Subtitle box */}
+          <div className="w-full bg-white/5 backdrop-blur-md border border-cyan-500/40 rounded-2xl p-5 text-center shadow-2xl min-h-[120px] flex flex-col justify-center gap-2">
+            {displayState === "listening" && (
+              <p className="text-cyan-400 font-mono text-xs uppercase tracking-wider animate-pulse">
+                Listening...
+              </p>
+            )}
+            {displayState === "thinking" && !isStreaming && (
+              <div className="flex items-center justify-center gap-1">
+                <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce" />
+                <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce [animation-delay:0.2s]" />
+                <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce [animation-delay:0.4s]" />
+              </div>
+            )}
+            {displayState === "speaking" && (
+              <p className="text-purple-400 font-mono text-xs uppercase tracking-wider">
+                AI Twin Speaking...
+              </p>
+            )}
+
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {displayState === "listening" &&
+                (transcript ||
+                  "Say something like 'What projects have you built?'")}
+              {displayState === "thinking" &&
+                (isStreaming
+                  ? lastAiMessage?.text || "Building response..."
+                  : "Consulting knowledge base...")}
+              {displayState === "speaking" && lastAiMessage?.text}
+              {displayState === "idle" &&
+                (lastAiMessage?.text || "Press the orb or speak to chat.")}
+            </p>
+          </div>
+        </div>
+
+        {/* ── Text / chat interface ──
+            Lazy-mounted: only added to the DOM the first time the user
+            switches to text mode. Hidden (not unmounted) when in voice mode
+            so conversation history is preserved across mode switches. */}
+        {hasOpenedText && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={cn(
+              "w-full max-w-2xl h-[75vh] flex flex-col bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl",
+              mode !== "text" && "hidden",
+            )}
+          >
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-4">
+              {messages.map((msg) => (
+                <div
+                  key={msg.id}
+                  className={cn(
+                    "flex flex-col max-w-[80%] rounded-2xl p-4 text-sm leading-relaxed",
+                    msg.sender === "user"
+                      ? "self-end bg-cyan-500 text-black rounded-tr-none font-medium"
+                      : "self-start bg-white/5 border border-cyan-500/40 text-foreground rounded-tl-none",
+                  )}
+                >
+                  <p className="whitespace-pre-wrap">
+                    {msg.text}
+                    {/* Blinking cursor while this message is streaming */}
+                    {isStreaming &&
+                      msg === messages[messages.length - 1] &&
+                      msg.sender === "ai" && (
+                        <span className="inline-block w-0.5 h-4 bg-cyan-400 ml-0.5 animate-pulse align-middle" />
+                      )}
+                  </p>
+                  {msg.text && (
+                    <span
+                      className={cn(
+                        "text-[10px] mt-1.5 block",
+                        msg.sender === "user"
+                          ? "text-black/60"
+                          : "text-muted-foreground/60",
+                      )}
+                    >
+                      {msg.timestamp.toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </span>
+                  )}
+                </div>
+              ))}
+
+              {/* Thinking indicator (only before first streaming chunk) */}
+              {aiState === "thinking" && !isStreaming && (
+                <div className="self-start bg-white/5 border border-cyan-500/40 rounded-2xl rounded-tl-none p-4 max-w-[80%] flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce" />
+                  <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce [animation-delay:0.2s]" />
+                  <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce [animation-delay:0.4s]" />
+                </div>
+              )}
+
+              <div ref={chatEndRef} />
+            </div>
+
+            {/* Input */}
+            <form
+              onSubmit={handleTextSubmit}
+              className="p-4 border-t border-white/5 bg-black/20 flex gap-2"
+            >
+              <input
+                type="text"
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                placeholder="Ask me about my projects, skills, or experience..."
+                disabled={aiState === "thinking" || isStreaming}
+                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50"
+              />
+
+              {supported.speechRecognition && (
+                <button
+                  type="button"
+                  onClick={toggleVoiceListen}
+                  className={cn(
+                    "p-3 rounded-xl border border-white/10 transition-all flex items-center justify-center",
+                    isListening
+                      ? "bg-cyan-500/20 text-cyan-400 border-cyan-500/55 animate-pulse"
+                      : "bg-white/5 text-muted-foreground hover:text-foreground hover:bg-white/10",
+                  )}
+                >
+                  {isListening ? <MicOff size={18} /> : <Mic size={18} />}
+                </button>
+              )}
+
+              <button
+                type="submit"
+                disabled={
+                  aiState === "thinking" || isStreaming || !inputText.trim()
+                }
+                className="bg-cyan-500 text-black px-4 py-3 rounded-xl font-bold text-sm hover:bg-cyan-400 transition-colors flex items-center justify-center disabled:opacity-50 disabled:hover:bg-cyan-500"
+              >
+                <Send size={18} />
+              </button>
+            </form>
+          </motion.div>
+        )}
       </main>
     </div>
   );
