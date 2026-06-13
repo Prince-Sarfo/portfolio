@@ -187,7 +187,7 @@ export function AIGuideWidget() {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <Sparkles size={18} className="text-cyan-400 animate-pulse" />
-                <span className="text-sm font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="text-sm font-bold bg-linear-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                   AI Portfolio Twin
                 </span>
               </div>

@@ -224,7 +224,7 @@ export function AIOrb({ state, onClick }: AIOrbProps) {
           key={state}
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-lg font-medium font-sans uppercase tracking-widest text-muted-foreground/80 text-sm"
+          className="text-sm font-medium font-sans uppercase tracking-widest text-muted-foreground/80 text-sm"
         >
           {getOverlayText()}
         </motion.p>
