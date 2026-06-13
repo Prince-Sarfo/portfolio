@@ -50,10 +50,13 @@ export function useSpeech(): UseSpeechReturn {
   // Initialize speech recognition client-side
   useEffect(() => {
     if (typeof window !== "undefined" && supported.speechRecognition) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const w = window as Window &
+        typeof globalThis & {
+          SpeechRecognition?: new () => SpeechRecognition;
+          webkitSpeechRecognition?: new () => SpeechRecognition;
+        };
       const SpeechRecognitionClass =
-        (window as any).SpeechRecognition ||
-        (window as any).webkitSpeechRecognition;
+        w.SpeechRecognition || w.webkitSpeechRecognition;
       const recognition = new SpeechRecognitionClass();
       recognition.continuous = false;
       recognition.interimResults = false;
