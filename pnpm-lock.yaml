@@ -32,6 +32,9 @@ importers:
       '@pinecone-database/pinecone':
         specifier: ^7.2.0
         version: 7.2.0
+      '@rive-app/react-webgl2':
+        specifier: ^4.29.1
+        version: 4.29.1(react@19.2.4)
       cheerio:
         specifier: ^1.2.0
         version: 1.2.0
@@ -797,6 +800,14 @@ packages:
   '@pinecone-database/pinecone@7.2.0':
     resolution: {integrity: sha512-urGsnNDWSSqSaWdyEF2P6V5bTNtRA6yMQTheFYAKKwk7mkloRBBETtT2ADF5Y8gJTr88pW5D8NTcCCLe+f0e2Q==}
     engines: {node: '>=20.0.0'}
+
+  '@rive-app/react-webgl2@4.29.1':
+    resolution: {integrity: sha512-m80p2dXWdQR5P0Mi6dP2fOCUwSx6MYxd051LTtG/7h/ryNCBmjceK1zFJwBzlmuWrfGQCXTPvCjOFHmU+uYcpw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0
+
+  '@rive-app/webgl2@2.38.1':
+    resolution: {integrity: sha512-dotNsRlrTaHNxTiJFxHHycB1PQhnJyIvrMTVpyzG6GYgjztnM27r07e8GJ2AuDQB/Vkmdz0Y6NRG5NVJ1OWDxQ==}
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
@@ -4143,6 +4154,13 @@ snapshots:
   '@nolyfill/is-core-module@1.0.39': {}
 
   '@pinecone-database/pinecone@7.2.0': {}
+
+  '@rive-app/react-webgl2@4.29.1(react@19.2.4)':
+    dependencies:
+      '@rive-app/webgl2': 2.38.1
+      react: 19.2.4
+
+  '@rive-app/webgl2@2.38.1': {}
 
   '@rtsao/scc@1.1.0': {}
 

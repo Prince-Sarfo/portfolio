@@ -14,7 +14,7 @@ import {
   VolumeX,
 } from "lucide-react";
 import { useSpeech } from "@/hooks/use-speech";
-import { AIOrb } from "@/modules/ai/components/ai-orb";
+import { Persona } from "@/components/ai-elements/persona";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { ChatHistory } from "@/modules/ai/utils/ai-engine";
@@ -290,8 +290,23 @@ export default function AIPage() {
               exit={{ opacity: 0, scale: 0.95 }}
               className="flex flex-col items-center justify-between h-[65vh] w-full max-w-md"
             >
-              <div className="flex-1 flex items-center justify-center">
-                <AIOrb state={displayState} onClick={toggleVoiceListen} />
+              <div className="flex-1 flex flex-col items-center justify-center gap-4">
+                <button
+                  onClick={toggleVoiceListen}
+                  className="focus:outline-none"
+                  aria-label={
+                    isListening ? "Stop listening" : "Start listening"
+                  }
+                >
+                  <Persona
+                    state={displayState}
+                    variant="obsidian"
+                    className="size-56 sm:size-72"
+                  />
+                </button>
+                <p className="text-xs text-muted-foreground/50 font-mono tracking-wider">
+                  {displayState === "idle" ? "tap to speak" : ""}
+                </p>
               </div>
 
               {/* Subtitle box */}
