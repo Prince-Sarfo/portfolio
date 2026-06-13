@@ -1,11 +1,10 @@
 import { MdEmail } from "react-icons/md";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { siteConfig } from "@/modules/home/data";
 
 const socials = [
   { icon: FaGithub, href: siteConfig.socials.github, label: "GitHub" },
   { icon: FaLinkedin, href: siteConfig.socials.linkedin, label: "LinkedIn" },
-  { icon: FaXTwitter, href: siteConfig.socials.twitter, label: "Twitter" },
   { icon: MdEmail, href: `mailto:${siteConfig.email}`, label: "Email" },
 ];
 

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { useScrollDirection } from "@/modules/home/hooks/use-scroll-direction";
 import { useActiveSection } from "@/modules/home/hooks/use-active-section";
 import { siteConfig } from "@/modules/home/data";
@@ -42,7 +43,6 @@ export function Navbar() {
           <span className="text-cyan-400">.</span>
         </a>
 
-        {/* Desktop */}
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -58,6 +58,15 @@ export function Navbar() {
               </a>
             </li>
           ))}
+          <li>
+            <Link
+              href="/ai"
+              className="text-xs font-bold text-cyan-400 border border-cyan-500/30 hover:border-cyan-400 bg-cyan-950/20 hover:bg-cyan-500/10 px-3 py-1.5 rounded-full transition-all duration-200 flex items-center gap-1.5"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              AI Twin
+            </Link>
+          </li>
         </ul>
 
         {/* Mobile toggle */}
@@ -95,6 +104,16 @@ export function Navbar() {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/ai"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-xs font-bold text-cyan-400 border border-cyan-500/30 bg-cyan-950/20 px-3.5 py-2 rounded-full inline-flex items-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                  AI Twin
+                </Link>
+              </li>
             </ul>
           </motion.div>
         )}

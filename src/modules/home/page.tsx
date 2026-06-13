@@ -6,6 +6,7 @@ import { SkillsSection } from "@/modules/home/components/sections/skills-section
 import { ExperienceSection } from "@/modules/home/components/sections/experience-section";
 import { ProjectsSection } from "@/modules/home/components/sections/projects-section";
 import { ContactSection } from "@/modules/home/components/sections/contact-section";
+import { AIGuideWidget } from "@/modules/home/components/ai/ai-guide-widget";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
         <ContactSection />
       </main>
       <Footer />
+      <AIGuideWidget />
     </>
   );
 }

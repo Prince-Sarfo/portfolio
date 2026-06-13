@@ -33,3 +33,7 @@ A professional, pixel-perfect, modern dark-themed portfolio website.
 
 - **Plan before executing** — think through the approach before writing code
 - If there is a better or more professional way to accomplish a task, recommend it before proceeding
+
+another page to it that goes to an AI page where people can chat or talk to me using voice or which one is better, when the home page loads the user is met with a voice agent that welcomes them and shows them around
+
+Implement LangChain AI to the portfolio website

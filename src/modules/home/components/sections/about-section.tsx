@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, Mail } from "lucide-react";
 import { siteConfig } from "@/modules/home/data";
@@ -27,19 +28,21 @@ export function AboutSection() {
           }}
           className="grid md:grid-cols-2 gap-16 items-center"
         >
-          {/* Avatar placeholder */}
+          {/* Profile photo */}
           <motion.div
             variants={fadeUp}
             className="flex justify-center md:justify-start"
           >
             <div className="relative">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/20 flex items-center justify-center">
-                <span className="text-7xl font-bold text-cyan-500/30">
-                  {siteConfig.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </span>
+              <div className="w-64 h-56 sm:w-80 sm:h-72 rounded-2xl overflow-hidden border border-cyan-500/20">
+                <Image
+                  src="/profile.png"
+                  alt={siteConfig.name}
+                  width={320}
+                  height={288}
+                  className="w-full h-full object-cover object-top"
+                  priority
+                />
               </div>
               {/* Decorative border */}
               <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-cyan-500/20 -z-10" />

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -28,7 +28,6 @@ const item = {
 const socials = [
   { icon: FaGithub, href: siteConfig.socials.github, label: "GitHub" },
   { icon: FaLinkedin, href: siteConfig.socials.linkedin, label: "LinkedIn" },
-  { icon: FaXTwitter, href: siteConfig.socials.twitter, label: "Twitter" },
   { icon: MdEmail, href: `mailto:${siteConfig.email}`, label: "Email" },
 ];
 

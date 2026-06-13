@@ -1,15 +1,15 @@
 export const siteConfig = {
   name: "Prince Sarfo",
-  role: "Full-Stack Developer",
-  tagline: "I build fast, accessible, and beautiful web experiences.",
-  bio: "I'm a full-stack developer with 5+ years of experience crafting scalable web applications. Passionate about clean code, great UX, and pushing the web forward.",
-  location: "San Francisco, CA",
-  email: "alex@example.com",
+  role: "Software Engineer",
+  tagline:
+    "I build fast, accessible, and beautiful web and mobile experiences.",
+  bio: "I'm a software engineer with experience crafting scalable web and mobile applications. Passionate about clean code, great UX, and pushing the boundaries of what's possible across platforms.",
+  location: "Ghana",
+  email: "snellmaxi6@gmail.com",
   resumeUrl: "#",
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+    github: "https://github.com/Prince-Sarfo",
+    linkedin: "https://www.linkedin.com/in/prince-sarfo-5587b01a6/",
   },
 };
 
