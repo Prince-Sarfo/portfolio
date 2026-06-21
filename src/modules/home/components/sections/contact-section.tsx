@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { ArrowUpRight } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 import { siteConfig } from "@/modules/home/data";
 
 const fadeUp = {
@@ -17,18 +15,31 @@ const fadeUp = {
   },
 };
 
+const links = [
+  {
+    icon: FaGithub,
+    label: "GitHub",
+    href: siteConfig.socials.github,
+    handle: "@Prince-Sarfo",
+  },
+  {
+    icon: FaLinkedin,
+    label: "LinkedIn",
+    href: siteConfig.socials.linkedin,
+    handle: "prince-sarfo",
+  },
+  {
+    icon: MdEmail,
+    label: "Email",
+    href: `mailto:${siteConfig.email}`,
+    handle: siteConfig.email,
+  },
+];
+
 export function ContactSection() {
-  const [sent, setSent] = useState(false);
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    // Wire up your preferred email service here (Resend, Formspree, etc.)
-    setSent(true);
-  }
-
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-32 px-6">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -37,105 +48,64 @@ export function ContactSection() {
             hidden: {},
             show: { transition: { staggerChildren: 0.15 } },
           }}
-          className="max-w-2xl mx-auto text-center"
         >
-          <motion.div variants={fadeUp}>
-            <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-3">
+          {/* Headline */}
+          <motion.div variants={fadeUp} className="mb-16">
+            <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-6">
               Get In Touch
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Let&apos;s Work Together
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] mb-6">
+              Got an interesting
+              <br />
+              problem?{" "}
+              <span className="text-cyan-400">Let&apos;s build it.</span>
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-12">
-              Have a project in mind or just want to say hello? My inbox is
-              always open. I&apos;ll get back to you as soon as possible.
+            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+              I&apos;m open to freelance work, full-time roles, and interesting
+              side projects. If you have something in mind, reach out — I
+              respond fast.
             </p>
           </motion.div>
 
-          <motion.form
+          {/* Primary CTA */}
+          <motion.div variants={fadeUp} className="mb-16">
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="group inline-flex items-center gap-3 text-2xl sm:text-3xl font-semibold text-foreground hover:text-cyan-400 transition-colors duration-200"
+            >
+              {siteConfig.email}
+              <ArrowUpRight
+                size={28}
+                className="opacity-40 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-200"
+              />
+            </a>
+          </motion.div>
+
+          {/* Social links */}
+          <motion.div
             variants={fadeUp}
-            onSubmit={handleSubmit}
-            className="space-y-4 text-left"
+            className="flex flex-col sm:flex-row gap-6 border-t border-border/60 pt-10"
           >
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label htmlFor="name" className="text-sm text-muted-foreground">
-                  Name
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  placeholder="John Doe"
-                  required
-                  className="bg-card border-border/60 focus:border-cyan-500/50"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="email"
-                  className="text-sm text-muted-foreground"
-                >
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder={siteConfig.email}
-                  required
-                  className="bg-card border-border/60 focus:border-cyan-500/50"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <label
-                htmlFor="subject"
-                className="text-sm text-muted-foreground"
+            {links.map(({ icon: Icon, label, href, handle }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
-                Subject
-              </label>
-              <Input
-                id="subject"
-                name="subject"
-                placeholder="Project inquiry"
-                required
-                className="bg-card border-border/60 focus:border-cyan-500/50"
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <label
-                htmlFor="message"
-                className="text-sm text-muted-foreground"
-              >
-                Message
-              </label>
-              <Textarea
-                id="message"
-                name="message"
-                placeholder="Tell me about your project..."
-                rows={5}
-                required
-                className="bg-card border-border/60 focus:border-cyan-500/50 resize-none"
-              />
-            </div>
-
-            {sent ? (
-              <p className="text-center text-sm text-cyan-400 py-3 rounded-lg bg-cyan-500/5 border border-cyan-500/20">
-                Thanks! I&apos;ll get back to you soon.
-              </p>
-            ) : (
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-semibold gap-2"
-              >
-                <Send size={16} />
-                Send Message
-              </Button>
-            )}
-          </motion.form>
+                <div className="w-10 h-10 rounded-lg border border-border/60 bg-card group-hover:border-cyan-500/30 flex items-center justify-center transition-colors duration-200">
+                  <Icon size={17} />
+                </div>
+                <div>
+                  <p className="text-xs font-mono text-muted-foreground/60 uppercase tracking-widest">
+                    {label}
+                  </p>
+                  <p className="text-sm text-foreground">{handle}</p>
+                </div>
+              </a>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

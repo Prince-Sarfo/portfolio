@@ -1,0 +1,27 @@
+# Prince Sarfo — Full-Stack Developer
+
+> Personal portfolio of Prince Sarfo, a full-stack software engineer based in Ghana.
+
+## About
+
+Prince Sarfo is a full-stack developer specialising in building fast, accessible, and beautiful web and mobile experiences. He works across the full product stack — from pixel-perfect frontends to scalable backend systems.
+
+## Skills
+
+- **Frontend:** React, Next.js, TypeScript, Tailwind CSS, Framer Motion
+- **Backend:** Node.js, Express, PostgreSQL, Prisma, Redis
+- **Tools:** Git, Docker, Figma, Vercel, AWS
+
+## Work
+
+Prince has shipped products used by thousands of users, contributed to open-source tooling, and worked across e-commerce, SaaS, and media verticals.
+
+## Contact
+
+- Email: snellmaxi6@gmail.com
+- GitHub: https://github.com/Prince-Sarfo
+- LinkedIn: https://www.linkedin.com/in/prince-sarfo-5587b01a6/
+
+## AI Assistant
+
+This site includes an AI assistant powered by LangChain that can answer questions about Prince's work and experience. Visit /ai to interact with it.
