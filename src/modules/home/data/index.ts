@@ -22,7 +22,7 @@ export const skills = [
       "TypeScript",
       "Tailwind CSS",
       "React Native",
-      "Flutter",
+      "Expo",
     ],
   },
   {
@@ -35,6 +35,7 @@ export const skills = [
       "Firebase",
       "PostgreSQL",
       "Drizzle",
+      "Knex",
     ],
   },
   {
@@ -42,9 +43,9 @@ export const skills = [
     items: [
       "Git",
       "GitHub Actions",
-      "Expo",
       "Netlify",
       "DigitalOcean",
+      "Vercel",
       "Figma",
     ],
   },

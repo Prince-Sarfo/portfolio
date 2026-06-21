@@ -132,7 +132,7 @@ export function HeroSection() {
           </div>
 
           {/* Right: photo */}
-          <motion.div variants={item} className="shrink-0">
+          <motion.div variants={item} className="shrink-0 hidden sm:block">
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64">
               <Image
                 src="/profile.png"
