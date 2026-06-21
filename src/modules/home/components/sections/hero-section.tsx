@@ -133,13 +133,13 @@ export function HeroSection() {
 
           {/* Right: photo */}
           <motion.div variants={item} className="shrink-0 hidden sm:block">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64">
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden">
               <Image
                 src="/profile.png"
                 alt={siteConfig.name}
                 fill
                 sizes="(max-width: 640px) 192px, (max-width: 1024px) 224px, 256px"
-                className="object-cover rounded-2xl"
+                className="object-cover object-top scale-110"
                 priority
               />
             </div>
