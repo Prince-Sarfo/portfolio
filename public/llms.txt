@@ -1,20 +1,36 @@
-# Prince Sarfo — Full-Stack Developer
+# Prince Sarfo — Software Developer
 
-> Personal portfolio of Prince Sarfo, a full-stack software engineer based in Ghana.
+> Personal portfolio of Prince Sarfo, a software developer based in Ghana.
 
 ## About
 
-Prince Sarfo is a full-stack developer specialising in building fast, accessible, and beautiful web and mobile experiences. He works across the full product stack — from pixel-perfect frontends to scalable backend systems.
+Prince Sarfo is a Computer Science graduate from KNUST with hands-on experience building scalable web and mobile applications, REST APIs, and distributed systems. Proficient in Node.js, RESTful API design, database management, authentication, and system integration.
 
 ## Skills
 
-- **Frontend:** React, Next.js, TypeScript, Tailwind CSS, Framer Motion
-- **Backend:** Node.js, Express, PostgreSQL, Prisma, Redis
-- **Tools:** Git, Docker, Figma, Vercel, AWS
+- **Frontend:** React.js, Next.js, TypeScript, Tailwind CSS, React Native, HTML, CSS, JavaScript
+- **Backend:** Node.js, REST APIs, Firebase, PostgreSQL, JWT Auth
+- **Tools:** Git, GitHub Actions, Figma, Adobe Photoshop, Expo
 
-## Work
+## Work Experience
 
-Prince has shipped products used by thousands of users, contributed to open-source tooling, and worked across e-commerce, SaaS, and media verticals.
+- **Software Developer (Freelancing)** — Mar 2025–Present
+- **Software Developer (NSS), Nyeova Systems, Accra** — Oct 2024–Aug 2025
+- **Software Intern, Mpact Lane Consult, Kumasi** — Sep 2023–Dec 2023
+- **Design Intern, Quality Image, Kumasi** — Sep 2022–Dec 2022
+
+## Education
+
+- BSc. Computer Science, KNUST — Jan 2021–Sep 2024
+
+## Projects
+
+- **UniKonnect** — Campus events mobile app with Firebase and Paystack
+- **SafePing** — Emergency safety app with OTP, location sharing, and push notifications
+- **OneMillion** — Cross-platform donation platform (web, mobile, desktop)
+- **Kuro** — Web and mobile app for residential communities in Africa
+- **PigeonUltra** — Migrated to Next.js with TypeScript, blog and auth flows
+- **Pappysko** — Property listing web app with Google Maps integration
 
 ## Contact
 

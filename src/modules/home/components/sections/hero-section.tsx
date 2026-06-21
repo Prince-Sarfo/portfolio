@@ -33,9 +33,9 @@ const socials = [
 ];
 
 const stats = [
-  { value: "6+", label: "Years coding" },
-  { value: "20+", label: "Projects shipped" },
-  { value: "3", label: "Continents reached" },
+  { value: "3+", label: "Years experience" },
+  { value: "6+", label: "Projects shipped" },
+  { value: "4", label: "Companies worked with" },
 ];
 
 export function HeroSection() {
@@ -104,6 +104,7 @@ export function HeroSection() {
               </a>
               <a
                 href={siteConfig.resumeUrl}
+                download="Prince_Sarfo_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(

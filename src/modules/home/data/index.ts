@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "Prince Sarfo",
-  role: "Software Engineer",
+  role: "Software Developer",
   tagline:
-    "I build fast, accessible, and beautiful web and mobile experiences.",
-  bio: "I'm a software engineer with experience crafting scalable web and mobile applications. Passionate about clean code, great UX, and pushing the boundaries of what's possible across platforms.",
+    "I build scalable web and mobile applications — from pixel-perfect frontends to reliable backend APIs.",
+  bio: "Computer Science graduate from KNUST with hands-on experience building scalable applications, APIs, and distributed systems. Passionate about clean code, great UX, and continuous learning.",
   location: "Ghana",
   email: "snellmaxi6@gmail.com",
-  resumeUrl: "#",
+  resumeUrl: "/prince-sarfo-cv.pdf",
   socials: {
     github: "https://github.com/Prince-Sarfo",
     linkedin: "https://www.linkedin.com/in/prince-sarfo-5587b01a6/",
@@ -16,77 +16,167 @@ export const siteConfig = {
 export const skills = [
   {
     category: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    items: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React Native",
+      "Flutter",
+    ],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "PostgreSQL", "Prisma", "Redis"],
+    items: [
+      "Node.js",
+      "NestJS",
+      "REST APIs",
+      "GraphQL",
+      "Firebase",
+      "PostgreSQL",
+      "Drizzle",
+    ],
   },
-  { category: "Tools", items: ["Git", "Docker", "Figma", "Vercel", "AWS"] },
+  {
+    category: "Tools",
+    items: [
+      "Git",
+      "GitHub Actions",
+      "Expo",
+      "Netlify",
+      "DigitalOcean",
+      "Figma",
+    ],
+  },
 ];
 
 export const experiences = [
   {
-    company: "Stripe",
-    role: "Senior Frontend Engineer",
-    period: "2022 — Present",
+    company: "Nyeova Systems",
+    role: "Software Developer",
+    period: "Oct 2024 — Present",
     description:
-      "Led the redesign of the merchant dashboard used by 500k+ businesses. Built a design system from scratch, reducing component duplication by 60%.",
-    tech: ["React", "TypeScript", "GraphQL"],
+      "Building and shipping products across web and mobile — PigeonUltra (web & mobile app), PigeonFleet (rider app), PigeonUltra Admin dashboard, Pappysko (property listing platform), and OneMillion (cross-platform donation app). Working across the full stack from UI to API and CI/CD pipelines.",
+    tech: [
+      "Next.js",
+      "React Native",
+      "Expo",
+      "Firebase",
+      "GraphQL",
+      "TypeScript",
+      "Netlify",
+      "DigitalOcean",
+      "GitHub Actions",
+    ],
   },
   {
-    company: "Vercel",
-    role: "Frontend Engineer",
-    period: "2020 — 2022",
+    company: "Mpact Lane Consult",
+    role: "Software Intern",
+    period: "Sep 2023 — Dec 2023",
     description:
-      "Contributed to the Next.js ecosystem and developer tooling. Improved build performance by 40% through caching strategy improvements.",
-    tech: ["Next.js", "Rust", "Node.js"],
+      "Collaborated with the team to build user-friendly, responsive web interfaces. Implemented user authentication flows for client web applications.",
+    tech: ["React.js", "JavaScript", "CSS"],
   },
   {
-    company: "Freelance",
-    role: "Full-Stack Developer",
-    period: "2018 — 2020",
+    company: "Quality Image",
+    role: "Design Intern",
+    period: "Sep 2022 — Dec 2022",
     description:
-      "Delivered 15+ web applications for clients across e-commerce, SaaS, and media. Specialized in React frontends with Node.js APIs.",
-    tech: ["React", "Node.js", "MongoDB"],
+      "Designed social media flyers, posters, and edited images for clients using Adobe Photoshop.",
+    tech: ["Adobe Photoshop", "Figma"],
   },
 ];
 
 export const projects = [
   {
-    title: "Horizon Dashboard",
+    title: "UniKonnect",
     description:
-      "A real-time analytics platform processing 10M+ events/day. Built with Next.js, tRPC, and Recharts.",
-    tech: ["Next.js", "TypeScript", "tRPC", "Prisma"],
+      "Final year project — a mobile app facilitating coordination and communication of events on campus. Integrated Firebase for auth and real-time database, and Paystack for seamless ticket payments.",
+    tech: ["Flutter", "Firebase", "Paystack"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Prince-Sarfo/event-hub",
     featured: true,
   },
   {
-    title: "Craft CMS",
+    title: "SafePing",
     description:
-      "A headless content management system with a rich text editor, media library, and role-based access control.",
-    tech: ["React", "Node.js", "PostgreSQL", "S3"],
+      "Full-stack emergency safety app with OTP auth, real-time location sharing, and trusted contact alerts. Secure REST API with CSRF protection, JWT auth, and Expo push notifications on iOS and Android.",
+    tech: ["React Native", "Node.js", "JWT", "Expo", "Mnotify"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: null,
     featured: true,
   },
   {
-    title: "OpenFlow",
+    title: "OneMillion",
     description:
-      "An open-source workflow automation tool inspired by n8n. Drag-and-drop node editor with 40+ integrations.",
-    tech: ["React", "TypeScript", "Redis", "Docker"],
+      "Cross-platform donation platform (website, mobile app, and desktop app) enabling users to participate in charitable events.",
+    tech: ["Next.js", "React Native", "Expo"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: null,
     featured: true,
   },
   {
-    title: "Palette AI",
+    title: "Kuro",
     description:
-      "AI-powered color palette generator. Upload an image or describe a mood and get a curated design palette.",
-    tech: ["Next.js", "OpenAI", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
+      "Web and mobile application for residential communities in Africa, enabling seamless community management.",
+    tech: ["Next.js", "React Native", "TypeScript"],
+    liveUrl: "https://kuro.weorg.ai/",
+    githubUrl: null,
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=ai.weorg.kuro&hl=en",
     featured: false,
+  },
+  {
+    title: "PigeonUltra",
+    description:
+      "Migrated the PigeonUltra website to the latest Next.js with TypeScript. Implemented a blog, updated pages, and added forgot-password flow.",
+    tech: ["Next.js", "TypeScript", "React", "Expo"],
+    liveUrl: "https://pigeonultra.com/",
+    githubUrl: null,
+    appStoreUrl: "https://apps.apple.com/us/app/pigeonultra/id1546397948",
+    featured: false,
+  },
+  {
+    title: "PigeonFleet",
+    description:
+      "Rider-facing mobile app for the PigeonUltra platform, enabling delivery riders to manage and fulfil orders on the go.",
+    tech: ["Expo", "GraphQL"],
+    liveUrl: "#",
+    githubUrl: null,
+    appStoreUrl: "https://apps.apple.com/us/app/pigeonfleet/id1547093544",
+    featured: false,
+  },
+  {
+    title: "PigeonUltra Admin",
+    description:
+      "Admin dashboard for the PigeonUltra platform, enabling internal management and oversight of platform operations.",
+    tech: ["Next.js", "GraphQL", "Tauri"],
+    liveUrl: "#",
+    githubUrl: null,
+    featured: false,
+  },
+  {
+    title: "Pappysko",
+    description:
+      "Property listing web app with interactive Google Maps integration, document uploads in chat, and full auth flows including forgot-password, profile, and settings pages.",
+    tech: ["React", "Google Maps API", "Node.js"],
+    liveUrl: "https://pappysko.com/",
+    githubUrl: null,
+    featured: false,
+  },
+];
+
+export const education = [
+  {
+    institution: "Kwame Nkrumah University of Science and Technology (KNUST)",
+    degree: "BSc. Computer Science",
+    period: "Jan 2021 — Sep 2024",
+    location: "Kumasi, Ghana",
+  },
+  {
+    institution: "Asanteman Senior High School",
+    degree: "W.A.S.S.C.E — General Science",
+    period: "Oct 2016 — Jun 2019",
+    location: "Kumasi, Ghana",
   },
 ];

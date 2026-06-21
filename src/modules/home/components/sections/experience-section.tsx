@@ -2,31 +2,31 @@
 
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import { experiences } from "@/modules/home/data";
+import { experiences, education } from "@/modules/home/data";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 24 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
+    transition: { duration: 0.5, ease: "easeOut" as const },
   },
 };
 
 export function ExperienceSection() {
   return (
     <section id="experience" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.15 } },
+            show: { transition: { staggerChildren: 0.12 } },
           }}
         >
-          <motion.div variants={fadeUp} className="text-center mb-16">
+          <motion.div variants={fadeUp} className="mb-16">
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-3">
               Where I&apos;ve Worked
             </p>
@@ -35,29 +35,23 @@ export function ExperienceSection() {
             </h2>
           </motion.div>
 
-          <div className="relative max-w-3xl mx-auto">
+          {/* Work experience */}
+          <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border/60 -translate-x-1/2 hidden md:block" />
+            <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border/60" />
 
-            <div className="space-y-12">
-              {experiences.map((exp, i) => (
+            <div className="space-y-10">
+              {experiences.map((exp) => (
                 <motion.div
-                  key={exp.company}
+                  key={`${exp.company}-${exp.period}`}
                   variants={fadeUp}
-                  className={`relative flex flex-col md:flex-row gap-6 ${
-                    i % 2 === 0 ? "md:flex-row-reverse" : ""
-                  }`}
+                  className="relative pl-8"
                 >
-                  {/* Timeline dot */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-cyan-400 border-2 border-background top-2 z-10" />
+                  {/* Dot */}
+                  <div className="absolute left-0 top-[6px] w-[15px] h-[15px] rounded-full border-2 border-cyan-400 bg-background" />
 
-                  {/* Card */}
-                  <div
-                    className={`md:w-[calc(50%-2rem)] p-6 rounded-2xl border border-border/60 bg-card hover:border-cyan-500/30 transition-colors duration-300 ${
-                      i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
-                    }`}
-                  >
-                    <div className="flex items-start justify-between gap-4 mb-3">
+                  <div className="p-5 rounded-xl border border-border/60 bg-card hover:border-cyan-500/30 transition-colors duration-300">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
                       <div>
                         <h3 className="font-semibold text-foreground">
                           {exp.role}
@@ -66,7 +60,7 @@ export function ExperienceSection() {
                           {exp.company}
                         </p>
                       </div>
-                      <span className="font-mono text-xs text-muted-foreground whitespace-nowrap shrink-0">
+                      <span className="font-mono text-xs text-muted-foreground whitespace-nowrap shrink-0 mt-0.5">
                         {exp.period}
                       </span>
                     </div>
@@ -85,6 +79,49 @@ export function ExperienceSection() {
               ))}
             </div>
           </div>
+
+          {/* Education */}
+          <motion.div variants={fadeUp} className="mt-20">
+            <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-3">
+              Education
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-10">
+              Academic Background
+            </h2>
+
+            <div className="relative">
+              <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border/60" />
+              <div className="space-y-6">
+                {education.map((edu) => (
+                  <motion.div
+                    key={edu.institution}
+                    variants={fadeUp}
+                    className="relative pl-8"
+                  >
+                    <div className="absolute left-0 top-[6px] w-[15px] h-[15px] rounded-full border-2 border-cyan-400 bg-background" />
+                    <div className="p-5 rounded-xl border border-border/60 bg-card hover:border-cyan-500/30 transition-colors duration-300">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+                        <div>
+                          <h3 className="font-semibold text-foreground">
+                            {edu.degree}
+                          </h3>
+                          <p className="text-cyan-400 text-sm font-medium">
+                            {edu.institution}
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-0.5">
+                            {edu.location}
+                          </p>
+                        </div>
+                        <span className="font-mono text-xs text-muted-foreground whitespace-nowrap shrink-0 mt-0.5">
+                          {edu.period}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

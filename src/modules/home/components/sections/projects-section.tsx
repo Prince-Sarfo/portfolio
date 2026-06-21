@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa6";
+import { FaGithub, FaGooglePlay, FaAppStore } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/modules/home/data";
 
@@ -55,24 +55,50 @@ export function ProjectsSection() {
                     </span>
                   </div>
                   <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <FaGithub size={17} />
-                    </a>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Live site"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <ExternalLink size={17} />
-                    </a>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <FaGithub size={17} />
+                      </a>
+                    )}
+                    {"playStoreUrl" in project && project.playStoreUrl && (
+                      <a
+                        href={project.playStoreUrl as string}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Google Play"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <FaGooglePlay size={15} />
+                      </a>
+                    )}
+                    {"appStoreUrl" in project && project.appStoreUrl && (
+                      <a
+                        href={project.appStoreUrl as string}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="App Store"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <FaAppStore size={17} />
+                      </a>
+                    )}
+                    {project.liveUrl && project.liveUrl !== "#" && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Live site"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <ExternalLink size={17} />
+                      </a>
+                    )}
                   </div>
                 </div>
 
@@ -108,24 +134,50 @@ export function ProjectsSection() {
                         {project.title}
                       </h3>
                       <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="GitHub"
-                          className="text-muted-foreground hover:text-foreground"
-                        >
-                          <FaGithub size={15} />
-                        </a>
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Live"
-                          className="text-muted-foreground hover:text-foreground"
-                        >
-                          <ExternalLink size={15} />
-                        </a>
+                        {project.githubUrl && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            className="text-muted-foreground hover:text-foreground"
+                          >
+                            <FaGithub size={15} />
+                          </a>
+                        )}
+                        {"playStoreUrl" in project && project.playStoreUrl && (
+                          <a
+                            href={project.playStoreUrl as string}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Google Play"
+                            className="text-muted-foreground hover:text-foreground"
+                          >
+                            <FaGooglePlay size={13} />
+                          </a>
+                        )}
+                        {"appStoreUrl" in project && project.appStoreUrl && (
+                          <a
+                            href={project.appStoreUrl as string}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="App Store"
+                            className="text-muted-foreground hover:text-foreground"
+                          >
+                            <FaAppStore size={15} />
+                          </a>
+                        )}
+                        {project.liveUrl && project.liveUrl !== "#" && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Live"
+                            className="text-muted-foreground hover:text-foreground"
+                          >
+                            <ExternalLink size={15} />
+                          </a>
+                        )}
                       </div>
                     </div>
                     <p className="text-xs text-muted-foreground leading-relaxed mb-3">
