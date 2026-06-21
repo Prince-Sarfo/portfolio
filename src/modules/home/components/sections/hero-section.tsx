@@ -134,7 +134,6 @@ export function HeroSection() {
           {/* Right: photo */}
           <motion.div variants={item} className="shrink-0">
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64">
-              <div className="absolute inset-0 rounded-2xl bg-cyan-500/10 border border-cyan-500/20" />
               <Image
                 src="/profile.png"
                 alt={siteConfig.name}
