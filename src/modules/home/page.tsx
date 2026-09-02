@@ -6,13 +6,10 @@ import { SkillsSection } from "@/modules/home/components/sections/skills-section
 import { ExperienceSection } from "@/modules/home/components/sections/experience-section";
 import { ProjectsSection } from "@/modules/home/components/sections/projects-section";
 import { ContactSection } from "@/modules/home/components/sections/contact-section";
-import { AIGuideWidget } from "@/modules/home/components/ai/ai-guide-widget";
-import { DevBanner } from "@/modules/home/components/layout/dev-banner";
 
 export default function HomePage() {
   return (
     <>
-      <DevBanner />
       <Navbar />
       <main>
         <HeroSection />
@@ -23,7 +20,6 @@ export default function HomePage() {
         <ContactSection />
       </main>
       <Footer />
-      <AIGuideWidget />
     </>
   );
 }

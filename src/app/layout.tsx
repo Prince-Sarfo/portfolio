@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Prince Sarfo — Full-Stack Developer",
+    default: "Prince Sarfo - Full-Stack Developer",
     template: "%s | Prince Sarfo",
   },
   description:
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: BASE_URL,
     siteName: "Prince Sarfo",
-    title: "Prince Sarfo — Full-Stack Developer",
+    title: "Prince Sarfo - Full-Stack Developer",
     description:
       "Full-stack developer based in Ghana, building fast, accessible, and beautiful web and mobile experiences.",
     images: [
@@ -68,13 +68,13 @@ export const metadata: Metadata = {
         url: "/profile.png",
         width: 1200,
         height: 630,
-        alt: "Prince Sarfo — Full-Stack Developer",
+        alt: "Prince Sarfo - Full-Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prince Sarfo — Full-Stack Developer",
+    title: "Prince Sarfo - Full-Stack Developer",
     description:
       "Full-stack developer based in Ghana, building fast, accessible, and beautiful web and mobile experiences.",
     images: ["/profile.png"],

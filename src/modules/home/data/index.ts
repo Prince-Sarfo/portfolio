@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Prince Sarfo",
   role: "Software Developer",
   tagline:
-    "I build scalable web and mobile applications — from pixel-perfect frontends to reliable backend APIs.",
+    "I build scalable web and mobile applications - from pixel-perfect frontends to reliable backend APIs.",
   bio: "Computer Science graduate from KNUST with hands-on experience building scalable applications, APIs, and distributed systems. Passionate about clean code, great UX, and continuous learning.",
   location: "Ghana",
   email: "snellmaxi6@gmail.com",
@@ -55,9 +55,9 @@ export const experiences = [
   {
     company: "Nyeova Systems",
     role: "Software Developer",
-    period: "Oct 2024 — Present",
+    period: "Oct 2024 - Present",
     description:
-      "Building and shipping products across web and mobile — PigeonUltra (web & mobile app), PigeonFleet (rider app), PigeonUltra Admin dashboard, Pappysko (property listing platform), and OneMillion (cross-platform donation app). Working across the full stack from UI to API and CI/CD pipelines.",
+      "Building and shipping products across web and mobile - PigeonUltra (web & mobile app), PigeonFleet (rider app), PigeonUltra Admin dashboard, Pappysko (property listing platform), and OneMillion (cross-platform donation app). Working across the full stack from UI to API and CI/CD pipelines.",
     tech: [
       "Next.js",
       "React Native",
@@ -73,7 +73,7 @@ export const experiences = [
   {
     company: "Mpact Lane Consult",
     role: "Software Intern",
-    period: "Sep 2023 — Dec 2023",
+    period: "Sep 2023 - Dec 2023",
     description:
       "Collaborated with the team to build user-friendly, responsive web interfaces. Implemented user authentication flows for client web applications.",
     tech: ["React.js", "JavaScript", "CSS"],
@@ -81,7 +81,7 @@ export const experiences = [
   {
     company: "Quality Image",
     role: "Design Intern",
-    period: "Sep 2022 — Dec 2022",
+    period: "Sep 2022 - Dec 2022",
     description:
       "Designed social media flyers, posters, and edited images for clients using Adobe Photoshop.",
     tech: ["Adobe Photoshop", "Figma"],
@@ -92,7 +92,7 @@ export const projects = [
   {
     title: "UniKonnect",
     description:
-      "Final year project — a mobile app facilitating coordination and communication of events on campus. Integrated Firebase for auth and real-time database, and Paystack for seamless ticket payments.",
+      "Final year project - a mobile app facilitating coordination and communication of events on campus. Integrated Firebase for auth and real-time database, and Paystack for seamless ticket payments.",
     tech: ["Flutter", "Firebase", "Paystack"],
     liveUrl: "#",
     githubUrl: "https://github.com/Prince-Sarfo/event-hub",
@@ -125,6 +125,7 @@ export const projects = [
     githubUrl: null,
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=ai.weorg.kuro&hl=en",
+    appStoreUrl: "https://apps.apple.com/us/app/kuro-mobile/id6775565414",
     featured: false,
   },
   {
@@ -165,19 +166,55 @@ export const projects = [
     githubUrl: null,
     featured: false,
   },
+  {
+    title: "SYTO Ghana",
+    description:
+      "Platform for the Student and Youth Travel Organisation connecting young people to educational travel, volunteering, and cultural exchange across Africa. Built with host-family matching, a club finder, program directories, and event listings.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://sytoghana.org/",
+    githubUrl: null,
+    featured: false,
+  },
+  {
+    title: "Bio-Tropical Ghana",
+    description:
+      "E-commerce site for an organic agricultural exporter specialising in certified dried citrus peels, cocoa, and shea butter. Features a product catalogue, wholesaler quote requests, and certification showcases (Fairtrade, EU, HACCP).",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://biotropicalghana.com/",
+    githubUrl: null,
+    featured: false,
+  },
+  {
+    title: "Schoolpedia",
+    description:
+      "Ghana's national school directory and accreditation registry, letting families search, compare, and apply to verified schools in one place. Features school discovery, interactive maps, comparison tools, and profile claiming for schools.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://schoolpedia.edcomrade.com/",
+    githubUrl: null,
+    featured: false,
+  },
+  {
+    title: "Pioneers",
+    description:
+      "School management system giving administrators, educators, and staff a centralised platform to manage student records, enrolment, scheduling, and day-to-day institutional operations.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://pioneers.edcomrade.com/",
+    githubUrl: null,
+    featured: false,
+  },
 ];
 
 export const education = [
   {
     institution: "Kwame Nkrumah University of Science and Technology (KNUST)",
     degree: "BSc. Computer Science",
-    period: "Jan 2021 — Sep 2024",
+    period: "Jan 2021 - Sep 2024",
     location: "Kumasi, Ghana",
   },
   {
     institution: "Asanteman Senior High School",
-    degree: "W.A.S.S.C.E — General Science",
-    period: "Oct 2016 — Jun 2019",
+    degree: "W.A.S.S.C.E - General Science",
+    period: "Oct 2016 - Jun 2019",
     location: "Kumasi, Ghana",
   },
 ];

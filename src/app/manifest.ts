@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Prince Sarfo — Full-Stack Developer",
+    name: "Prince Sarfo - Full-Stack Developer",
     short_name: "Prince Sarfo",
     description:
       "Full-stack developer building fast, accessible, and beautiful web experiences.",
