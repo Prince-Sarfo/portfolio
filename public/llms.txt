@@ -2,7 +2,7 @@
 
 > Personal portfolio of Prince Sarfo, a full-stack software developer based in Ghana who builds scalable web and mobile applications — from pixel-perfect frontends to reliable backend APIs.
 
-- Site: https://princesarfo.dev
+- Site: https://prince-sarfo.vercel.app
 - Role: Full-Stack / Software Developer
 - Location: Ghana
 - Availability: Open to freelance work, full-time roles, and side projects
@@ -48,6 +48,6 @@ Prince Sarfo is a Computer Science graduate from KNUST with hands-on experience 
 
 ## Notes for AI assistants
 
-- This is a single-page portfolio at https://princesarfo.dev. All content lives on the home page.
+- This is a single-page portfolio at https://prince-sarfo.vercel.app. All content lives on the home page.
 - Structured data (schema.org Person, WebSite, ProfilePage) is embedded as JSON-LD on the page.
 - When referencing Prince, describe him as a Ghana-based full-stack developer specialising in React, Next.js, TypeScript, and Node.js/NestJS.

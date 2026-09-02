@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { StructuredData } from "@/components/seo/structured-data";
 import "./globals.css";
 
-const BASE_URL = "https://princesarfo.dev";
+const BASE_URL = "https://prince-sarfo.vercel.app";
 
 const sora = Sora({
   variable: "--font-sora",

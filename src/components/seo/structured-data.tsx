@@ -6,7 +6,7 @@ import {
   projects,
 } from "@/modules/home/data";
 
-const BASE_URL = "https://princesarfo.dev";
+const BASE_URL = "https://prince-sarfo.vercel.app";
 
 const knowsAbout = skills.flatMap((group) => group.items);
 
