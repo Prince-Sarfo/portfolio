@@ -40,7 +40,11 @@ const stats = [
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+    <section
+      id="hero"
+      aria-label="Introduction"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden"
+    >
       {/* Background grid */}
       <div
         className="absolute inset-0 -z-10 opacity-[0.03]"

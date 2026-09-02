@@ -15,7 +15,11 @@ const fadeUp = {
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-24 px-6">
+    <section
+      id="skills"
+      aria-labelledby="skills-heading"
+      className="py-24 px-6"
+    >
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
@@ -30,7 +34,10 @@ export function SkillsSection() {
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-3">
               What I Work With
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            <h2
+              id="skills-heading"
+              className="text-3xl sm:text-4xl font-bold text-foreground"
+            >
               Skills & Tools
             </h2>
           </motion.div>

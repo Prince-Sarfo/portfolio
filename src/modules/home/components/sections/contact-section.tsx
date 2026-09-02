@@ -38,7 +38,11 @@ const links = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-32 px-6">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="py-32 px-6"
+    >
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial="hidden"
@@ -54,7 +58,10 @@ export function ContactSection() {
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-6">
               Get In Touch
             </p>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] mb-6">
+            <h2
+              id="contact-heading"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] mb-6"
+            >
               Got an interesting
               <br />
               problem?{" "}

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Fira_Code } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { StructuredData } from "@/components/seo/structured-data";
 import "./globals.css";
 
 const BASE_URL = "https://princesarfo.dev";
@@ -97,6 +98,13 @@ export default function RootLayout({
       className={`${sora.variable} ${firaCode.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-cyan-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-black focus:outline-none focus:ring-2 focus:ring-cyan-300"
+        >
+          Skip to content
+        </a>
+        <StructuredData />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

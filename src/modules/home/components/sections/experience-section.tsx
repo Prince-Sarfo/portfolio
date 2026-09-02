@@ -15,7 +15,11 @@ const fadeUp = {
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 px-6">
+    <section
+      id="experience"
+      aria-labelledby="experience-heading"
+      className="py-24 px-6"
+    >
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial="hidden"
@@ -30,7 +34,10 @@ export function ExperienceSection() {
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-3">
               Where I&apos;ve Worked
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            <h2
+              id="experience-heading"
+              className="text-3xl sm:text-4xl font-bold text-foreground"
+            >
               Experience
             </h2>
           </motion.div>

@@ -20,7 +20,11 @@ export function ProjectsSection() {
   const others = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-24 px-6">
+    <section
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="py-24 px-6"
+    >
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
@@ -35,7 +39,10 @@ export function ProjectsSection() {
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-3">
               Things I&apos;ve Built
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            <h2
+              id="projects-heading"
+              className="text-3xl sm:text-4xl font-bold text-foreground"
+            >
               Projects
             </h2>
           </motion.div>

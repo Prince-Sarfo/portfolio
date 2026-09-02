@@ -33,9 +33,13 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav
+        aria-label="Primary"
+        className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
+      >
         <a
           href="#"
+          aria-label={`${siteConfig.name} — home`}
           className="font-mono text-sm font-semibold text-primary tracking-widest uppercase"
         >
           {siteConfig.name.split(" ")[0]}
@@ -47,6 +51,9 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
+                aria-current={
+                  active === link.href.slice(1) ? "page" : undefined
+                }
                 className={`text-sm transition-colors duration-200 ${
                   active === link.href.slice(1)
                     ? "text-cyan-400"
@@ -61,9 +68,12 @@ export function Navbar() {
 
         {/* Mobile toggle */}
         <button
+          type="button"
           className="md:hidden text-muted-foreground hover:text-foreground transition-colors"
           onClick={() => setMobileOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -72,6 +82,7 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -84,6 +95,9 @@ export function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
+                    aria-current={
+                      active === link.href.slice(1) ? "page" : undefined
+                    }
                     className={`text-sm transition-colors ${
                       active === link.href.slice(1)
                         ? "text-cyan-400"
