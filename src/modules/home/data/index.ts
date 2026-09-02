@@ -188,7 +188,7 @@ export const projects = [
     title: "Schoolpedia",
     description:
       "Ghana's national school directory and accreditation registry, letting families search, compare, and apply to verified schools in one place. Features school discovery, interactive maps, comparison tools, and profile claiming for schools.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tech: ["Next.js", "TypeScript", "NestJS", "BullMQ", "Tailwind CSS"],
     liveUrl: "https://schoolpedia.edcomrade.com/",
     githubUrl: null,
     featured: false,
@@ -197,7 +197,7 @@ export const projects = [
     title: "Pioneers",
     description:
       "School management system giving administrators, educators, and staff a centralised platform to manage student records, enrolment, scheduling, and day-to-day institutional operations.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tech: ["Next.js", "TypeScript", "NestJS", "BullMQ", "Tailwind CSS"],
     liveUrl: "https://pioneers.edcomrade.com/",
     githubUrl: null,
     featured: false,
