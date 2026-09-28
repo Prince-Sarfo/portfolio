@@ -70,14 +70,14 @@ export const experiences = [
       "GitHub Actions",
     ],
   },
-  {
-    company: "weorg.ai",
-    role: "Web/Mobile Developer",
-    period: "Feb 2026 - Present",
-    description:
-      "Building frontend experiences across web and mobile, including Kuro - a community management platform for residential communities in Africa.",
-    tech: ["Next.js", "React Native", "TypeScript", "Tailwind CSS"],
-  },
+  // {
+  //   company: "weorg.ai",
+  //   role: "Web/Mobile Developer",
+  //   period: "Feb 2026 - Present",
+  //   description:
+  //     "Building frontend experiences across web and mobile, including Kuro - a community management platform for residential communities in Africa.",
+  //   tech: ["Next.js", "React Native", "TypeScript", "Tailwind CSS"],
+  // },
   {
     company: "Mpact Lane Consult",
     role: "Software Intern",
