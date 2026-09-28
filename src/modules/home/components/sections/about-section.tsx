@@ -4,19 +4,17 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Tv, Music } from "lucide-react";
 import { siteConfig, hobbies } from "@/modules/home/data";
+import {
+  fadeUp,
+  scaleIn,
+  slideInLeft,
+  staggerContainer,
+  viewportOnce,
+} from "@/modules/home/lib/animations";
 
 const hobbyIcons: Record<string, typeof Tv> = {
   "Watching anime": Tv,
   Music: Music,
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
-  },
 };
 
 export function AboutSection() {
@@ -26,16 +24,13 @@ export function AboutSection() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.15 } },
-          }}
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
           className="grid md:grid-cols-2 gap-16 items-center"
         >
           {/* Profile photo */}
           <motion.div
-            variants={fadeUp}
+            variants={slideInLeft}
             className="flex justify-center md:justify-start"
           >
             <div className="relative">
@@ -84,20 +79,24 @@ export function AboutSection() {
               <p className="font-mono text-xs text-cyan-400 tracking-widest uppercase mb-3">
                 Off the Clock
               </p>
-              <div className="flex flex-wrap gap-2">
+              <motion.div
+                variants={staggerContainer(0.08)}
+                className="flex flex-wrap gap-2"
+              >
                 {hobbies.map((hobby) => {
                   const Icon = hobbyIcons[hobby];
                   return (
-                    <span
+                    <motion.span
                       key={hobby}
+                      variants={scaleIn}
                       className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-3 py-1.5 text-sm text-muted-foreground"
                     >
                       {Icon && <Icon size={15} className="text-cyan-400" />}
                       {hobby}
-                    </span>
+                    </motion.span>
                   );
                 })}
-              </div>
+              </motion.div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">

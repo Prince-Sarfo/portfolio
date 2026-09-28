@@ -5,15 +5,13 @@ import { ExternalLink } from "lucide-react";
 import { FaGithub, FaGooglePlay, FaAppStore } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/modules/home/data";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
-  },
-};
+import {
+  fadeUp,
+  scaleIn,
+  slideInLeft,
+  staggerContainer,
+  viewportOnce,
+} from "@/modules/home/lib/animations";
 
 export function ProjectsSection() {
   const featured = projects.filter((p) => p.featured);
@@ -29,11 +27,8 @@ export function ProjectsSection() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.12 } },
-          }}
+          viewport={viewportOnce}
+          variants={staggerContainer(0.1)}
         >
           <motion.div variants={fadeUp} className="text-center mb-16">
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-3">
@@ -52,7 +47,7 @@ export function ProjectsSection() {
             {featured.map((project) => (
               <motion.article
                 key={project.title}
-                variants={fadeUp}
+                variants={scaleIn}
                 className="group flex flex-col p-6 rounded-2xl border border-border/60 bg-card hover:border-cyan-500/30 hover:shadow-[0_0_40px_-12px] hover:shadow-cyan-500/10 transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-4">
@@ -132,7 +127,7 @@ export function ProjectsSection() {
               {others.map((project) => (
                 <motion.article
                   key={project.title}
-                  variants={fadeUp}
+                  variants={slideInLeft}
                   className="group flex items-start gap-4 p-5 rounded-xl border border-border/60 bg-card hover:border-cyan-500/30 transition-all duration-300"
                 >
                   <div className="flex-1">

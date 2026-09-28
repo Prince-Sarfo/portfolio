@@ -8,23 +8,12 @@ import { MdEmail } from "react-icons/md";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/modules/home/data";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
-  },
-};
+import {
+  fadeUp,
+  scaleIn,
+  slideInRight,
+  staggerContainer,
+} from "@/modules/home/lib/animations";
 
 const socials = [
   { icon: FaGithub, href: siteConfig.socials.github, label: "GitHub" },
@@ -59,7 +48,7 @@ export function HeroSection() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-cyan-500/5 blur-[120px] -z-10" />
 
       <motion.div
-        variants={container}
+        variants={staggerContainer(0.12, 0.2)}
         initial="hidden"
         animate="show"
         className="max-w-4xl w-full"
@@ -69,14 +58,14 @@ export function HeroSection() {
           {/* Left: identity */}
           <div className="flex-1 text-left">
             <motion.p
-              variants={item}
+              variants={fadeUp}
               className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-5"
             >
               Based in {siteConfig.location}
             </motion.p>
 
             <motion.h1
-              variants={item}
+              variants={fadeUp}
               className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.05] mb-6"
             >
               Software
@@ -85,14 +74,14 @@ export function HeroSection() {
             </motion.h1>
 
             <motion.p
-              variants={item}
+              variants={fadeUp}
               className="text-base sm:text-lg text-muted-foreground max-w-md leading-relaxed mb-8"
             >
               {siteConfig.tagline}
             </motion.p>
 
             <motion.div
-              variants={item}
+              variants={fadeUp}
               className="flex flex-wrap items-center gap-4 mb-8"
             >
               <a
@@ -117,7 +106,7 @@ export function HeroSection() {
               </a>
             </motion.div>
 
-            <motion.div variants={item} className="flex items-center gap-5">
+            <motion.div variants={fadeUp} className="flex items-center gap-5">
               {socials.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -134,7 +123,10 @@ export function HeroSection() {
           </div>
 
           {/* Right: photo */}
-          <motion.div variants={item} className="shrink-0 hidden sm:block">
+          <motion.div
+            variants={slideInRight}
+            className="shrink-0 hidden sm:block"
+          >
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden">
               <Image
                 src="/profile.png"
@@ -150,16 +142,16 @@ export function HeroSection() {
 
         {/* Stats row */}
         <motion.div
-          variants={item}
+          variants={staggerContainer(0.1)}
           className="grid grid-cols-3 gap-4 border-t border-border/60 pt-8"
         >
           {stats.map(({ value, label }) => (
-            <div key={label} className="text-left">
+            <motion.div key={label} variants={scaleIn} className="text-left">
               <p className="text-3xl sm:text-4xl font-bold text-foreground mb-1">
                 {value}
               </p>
               <p className="text-sm text-muted-foreground">{label}</p>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </motion.div>

@@ -3,15 +3,12 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { experiences, education } from "@/modules/home/data";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
-  },
-};
+import {
+  fadeUp,
+  slideInLeft,
+  staggerContainer,
+  viewportOnce,
+} from "@/modules/home/lib/animations";
 
 export function ExperienceSection() {
   return (
@@ -24,11 +21,8 @@ export function ExperienceSection() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.12 } },
-          }}
+          viewport={viewportOnce}
+          variants={staggerContainer(0.12)}
         >
           <motion.div variants={fadeUp} className="mb-16">
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-3">
@@ -51,7 +45,7 @@ export function ExperienceSection() {
               {experiences.map((exp) => (
                 <motion.div
                   key={`${exp.company}-${exp.period}`}
-                  variants={fadeUp}
+                  variants={slideInLeft}
                   className="relative pl-8"
                 >
                   {/* Dot */}
@@ -102,7 +96,7 @@ export function ExperienceSection() {
                 {education.map((edu) => (
                   <motion.div
                     key={edu.institution}
-                    variants={fadeUp}
+                    variants={slideInLeft}
                     className="relative pl-8"
                   >
                     <div className="absolute left-0 top-[6px] w-[15px] h-[15px] rounded-full border-2 border-cyan-400 bg-background" />

@@ -5,15 +5,13 @@ import { ArrowUpRight } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { siteConfig } from "@/modules/home/data";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
-  },
-};
+import {
+  fadeUp,
+  scaleIn,
+  slideInLeft,
+  staggerContainer,
+  viewportOnce,
+} from "@/modules/home/lib/animations";
 
 const links = [
   {
@@ -47,11 +45,8 @@ export function ContactSection() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.15 } },
-          }}
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
         >
           {/* Headline */}
           <motion.div variants={fadeUp} className="mb-16">
@@ -74,7 +69,7 @@ export function ContactSection() {
           </motion.div>
 
           {/* Primary CTA */}
-          <motion.div variants={fadeUp} className="mb-16">
+          <motion.div variants={scaleIn} className="mb-16">
             <a
               href={`mailto:${siteConfig.email}`}
               className="group inline-flex items-center gap-3 text-2xl sm:text-3xl font-semibold text-foreground hover:text-cyan-400 transition-colors duration-200"
@@ -89,12 +84,13 @@ export function ContactSection() {
 
           {/* Social links */}
           <motion.div
-            variants={fadeUp}
+            variants={staggerContainer(0.1)}
             className="flex flex-col sm:flex-row gap-6 border-t border-border/60 pt-10"
           >
             {links.map(({ icon: Icon, label, href, handle }) => (
-              <a
+              <motion.a
                 key={label}
+                variants={slideInLeft}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -109,7 +105,7 @@ export function ContactSection() {
                   </p>
                   <p className="text-sm text-foreground">{handle}</p>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </motion.div>
         </motion.div>

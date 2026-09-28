@@ -3,15 +3,12 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { skills } from "@/modules/home/data";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
-  },
-};
+import {
+  fadeUp,
+  scaleIn,
+  staggerContainer,
+  viewportOnce,
+} from "@/modules/home/lib/animations";
 
 export function SkillsSection() {
   return (
@@ -24,11 +21,8 @@ export function SkillsSection() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.12 } },
-          }}
+          viewport={viewportOnce}
+          variants={staggerContainer(0.1)}
         >
           <motion.div variants={fadeUp} className="text-center mb-16">
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-3">
@@ -46,7 +40,7 @@ export function SkillsSection() {
             {skills.map((group) => (
               <motion.div
                 key={group.category}
-                variants={fadeUp}
+                variants={scaleIn}
                 className="p-6 rounded-2xl border border-border/60 bg-card hover:border-cyan-500/30 transition-colors duration-300"
               >
                 <h3 className="font-mono text-xs text-cyan-400 tracking-widest uppercase mb-5">
