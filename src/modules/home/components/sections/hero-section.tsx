@@ -34,7 +34,7 @@ const socials = [
 
 const stats = [
   { value: "3+", label: "Years experience" },
-  { value: "6+", label: "Projects shipped" },
+  { value: "10+", label: "Projects shipped" },
   { value: "4", label: "Companies worked with" },
 ];
 
@@ -79,11 +79,9 @@ export function HeroSection() {
               variants={item}
               className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.05] mb-6"
             >
-              Builder.
+              Software
               <br />
-              Engineer.
-              <br />
-              <span className="text-cyan-400">Creator.</span>
+              <span className="text-cyan-400">Engineer.</span>
             </motion.h1>
 
             <motion.p

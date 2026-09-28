@@ -61,7 +61,7 @@ export function ProjectsSection() {
                       {project.title[0]}
                     </span>
                   </div>
-                  <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <div className="flex gap-3">
                     {project.githubUrl && (
                       <a
                         href={project.githubUrl}
@@ -140,7 +140,7 @@ export function ProjectsSection() {
                       <h3 className="font-medium text-foreground group-hover:text-cyan-400 transition-colors text-sm">
                         {project.title}
                       </h3>
-                      <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex gap-2">
                         {project.githubUrl && (
                           <a
                             href={project.githubUrl}

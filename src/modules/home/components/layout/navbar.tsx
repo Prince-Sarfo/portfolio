@@ -39,7 +39,7 @@ export function Navbar() {
       >
         <a
           href="#"
-          aria-label={`${siteConfig.name} — home`}
+          aria-label={`${siteConfig.name} - home`}
           className="font-mono text-sm font-semibold text-primary tracking-widest uppercase"
         >
           {siteConfig.name.split(" ")[0]}

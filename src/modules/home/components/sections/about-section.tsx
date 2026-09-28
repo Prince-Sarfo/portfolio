@@ -2,8 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, Mail } from "lucide-react";
-import { siteConfig } from "@/modules/home/data";
+import { MapPin, Mail, Tv, Music } from "lucide-react";
+import { siteConfig, hobbies } from "@/modules/home/data";
+
+const hobbyIcons: Record<string, typeof Tv> = {
+  "Watching anime": Tv,
+  Music: Music,
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -68,10 +73,32 @@ export function AboutSection() {
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              When I&apos;m not pushing pixels or wiring up APIs, I write about
-              web development, contribute to open source, and explore the
-              intersection of design and engineering.
+              As a software engineer, I care about the whole system - designing
+              maintainable architectures, writing well-tested code, and shipping
+              reliable software that scales. When I&apos;m not building,
+              I&apos;m sharpening my craft and exploring the intersection of
+              design and engineering.
             </p>
+
+            <div>
+              <p className="font-mono text-xs text-cyan-400 tracking-widest uppercase mb-3">
+                Off the Clock
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {hobbies.map((hobby) => {
+                  const Icon = hobbyIcons[hobby];
+                  return (
+                    <span
+                      key={hobby}
+                      className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-3 py-1.5 text-sm text-muted-foreground"
+                    >
+                      {Icon && <Icon size={15} className="text-cyan-400" />}
+                      {hobby}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">

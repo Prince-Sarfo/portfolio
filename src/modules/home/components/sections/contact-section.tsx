@@ -69,8 +69,7 @@ export function ContactSection() {
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
               I&apos;m open to freelance work, full-time roles, and interesting
-              side projects. If you have something in mind, reach out - I
-              respond fast.
+              side projects. If you have something in mind, reach out.
             </p>
           </motion.div>
 

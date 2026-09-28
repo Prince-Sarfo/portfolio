@@ -55,7 +55,7 @@ const structuredData = {
       "@type": "WebSite",
       "@id": `${BASE_URL}/#website`,
       url: BASE_URL,
-      name: `${siteConfig.name} — ${siteConfig.role}`,
+      name: `${siteConfig.name} - ${siteConfig.role}`,
       description: siteConfig.tagline,
       inLanguage: "en",
       publisher: { "@id": `${BASE_URL}/#person` },

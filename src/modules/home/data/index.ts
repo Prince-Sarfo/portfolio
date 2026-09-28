@@ -3,7 +3,7 @@ export const siteConfig = {
   role: "Software Developer",
   tagline:
     "I build scalable web and mobile applications - from pixel-perfect frontends to reliable backend APIs.",
-  bio: "Computer Science graduate from KNUST with hands-on experience building scalable applications, APIs, and distributed systems. Passionate about clean code, great UX, and continuous learning.",
+  bio: "Software engineer and Computer Science graduate from KNUST with hands-on experience building scalable applications, APIs, and distributed systems. Passionate about clean code, robust architecture, and continuous learning.",
   location: "Ghana",
   email: "snellmaxi6@gmail.com",
   resumeUrl: "/prince-sarfo-cv.pdf",
@@ -54,7 +54,7 @@ export const skills = [
 export const experiences = [
   {
     company: "Nyeova Systems",
-    role: "Software Developer",
+    role: "Software Engineer",
     period: "Oct 2024 - Present",
     description:
       "Building and shipping products across web and mobile - PigeonUltra (web & mobile app), PigeonFleet (rider app), PigeonUltra Admin dashboard, Pappysko (property listing platform), and OneMillion (cross-platform donation app). Working across the full stack from UI to API and CI/CD pipelines.",
@@ -69,6 +69,14 @@ export const experiences = [
       "DigitalOcean",
       "GitHub Actions",
     ],
+  },
+  {
+    company: "weorg.ai",
+    role: "Web/Mobile Developer",
+    period: "Feb 2026 - Present",
+    description:
+      "Building frontend experiences across web and mobile, including Kuro - a community management platform for residential communities in Africa.",
+    tech: ["Next.js", "React Native", "TypeScript", "Tailwind CSS"],
   },
   {
     company: "Mpact Lane Consult",
@@ -89,24 +97,6 @@ export const experiences = [
 ];
 
 export const projects = [
-  {
-    title: "UniKonnect",
-    description:
-      "Final year project - a mobile app facilitating coordination and communication of events on campus. Integrated Firebase for auth and real-time database, and Paystack for seamless ticket payments.",
-    tech: ["Flutter", "Firebase", "Paystack"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Prince-Sarfo/event-hub",
-    featured: true,
-  },
-  {
-    title: "SafePing",
-    description:
-      "Full-stack emergency safety app with OTP auth, real-time location sharing, and trusted contact alerts. Secure REST API with CSRF protection, JWT auth, and Expo push notifications on iOS and Android.",
-    tech: ["React Native", "Node.js", "JWT", "Expo", "Mnotify"],
-    liveUrl: "#",
-    githubUrl: null,
-    featured: true,
-  },
   {
     title: "OneMillion",
     description:
@@ -132,9 +122,20 @@ export const projects = [
     title: "PigeonUltra",
     description:
       "Migrated the PigeonUltra website to the latest Next.js with TypeScript. Implemented a blog, updated pages, and added forgot-password flow.",
-    tech: ["Next.js", "TypeScript", "React", "Expo"],
+    tech: ["Next.js", "TypeScript", "React"],
     liveUrl: "https://pigeonultra.com/",
     githubUrl: null,
+    featured: false,
+  },
+  {
+    title: "PigeonClient",
+    description:
+      "Customer-facing mobile app for the PigeonUltra platform, letting users place and track deliveries on iOS and Android.",
+    tech: ["React Native", "Expo", "GraphQL"],
+    liveUrl: "#",
+    githubUrl: null,
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.nyeova.pigeonbolt.client",
     appStoreUrl: "https://apps.apple.com/us/app/pigeonultra/id1546397948",
     featured: false,
   },
@@ -145,6 +146,8 @@ export const projects = [
     tech: ["Expo", "GraphQL"],
     liveUrl: "#",
     githubUrl: null,
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.nyeova.pigeonbolt.courier",
     appStoreUrl: "https://apps.apple.com/us/app/pigeonfleet/id1547093544",
     featured: false,
   },
@@ -202,7 +205,27 @@ export const projects = [
     githubUrl: null,
     featured: false,
   },
+  {
+    title: "UniKonnect",
+    description:
+      "Final year project - a mobile app facilitating coordination and communication of events on campus. Integrated Firebase for auth and real-time database, and Paystack for seamless ticket payments.",
+    tech: ["Flutter", "Firebase", "Paystack"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/Prince-Sarfo/event-hub",
+    featured: false,
+  },
+  {
+    title: "SafePing",
+    description:
+      "Full-stack emergency safety app with OTP auth, real-time location sharing, and trusted contact alerts. Secure REST API with CSRF protection, JWT auth, and Expo push notifications on iOS and Android.",
+    tech: ["React Native", "Node.js", "JWT", "Expo", "Mnotify"],
+    liveUrl: "#",
+    githubUrl: null,
+    featured: false,
+  },
 ];
+
+export const hobbies = ["Watching anime", "Music"];
 
 export const education = [
   {
