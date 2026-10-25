@@ -59,7 +59,7 @@ export function AboutSection() {
                 id="about-heading"
                 className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
               >
-                Crafting digital experiences that matter
+                A full-stack engineer who ships, end to end
               </h2>
             </div>
 
@@ -68,11 +68,10 @@ export function AboutSection() {
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              As a software engineer, I care about the whole system - designing
-              maintainable architectures, writing well-tested code, and shipping
-              reliable software that scales. When I&apos;m not building,
-              I&apos;m sharpening my craft and exploring the intersection of
-              design and engineering.
+              I care about the details that make software dependable in
+              production: clean APIs, well-tested code, and systems a team can
+              extend without nasty surprises. I&apos;m at my best owning a hard
+              problem end to end and shipping it.
             </p>
 
             <div>

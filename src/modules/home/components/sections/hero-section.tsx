@@ -57,13 +57,6 @@ export function HeroSection() {
         <div className="flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between gap-10 mb-10">
           {/* Left: identity */}
           <div className="flex-1 text-left">
-            <motion.p
-              variants={fadeUp}
-              className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-5"
-            >
-              Based in {siteConfig.location}
-            </motion.p>
-
             <motion.h1
               variants={fadeUp}
               className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.05] mb-6"

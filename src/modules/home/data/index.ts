@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Prince Sarfo",
-  role: "Software Developer",
+  role: "Software Engineer",
   tagline:
-    "I build scalable web and mobile applications - from pixel-perfect frontends to reliable backend APIs.",
-  bio: "Software engineer and Computer Science graduate from KNUST with hands-on experience building scalable applications, APIs, and distributed systems. Passionate about clean code, robust architecture, and continuous learning.",
+    "Hi, I'm Prince Sarfo, and I like turning ideas into products. Whether it's shipping a feature, designing an API, or building the system behind it, I take an idea from first sketch to something people actually use.",
+  bio: "I'm a software engineer and KNUST Computer Science graduate who builds products end-to-end, from PostgreSQL schemas to React Native apps and Tauri desktop builds. I've shipped across fintech, logistics, proptech, and edtech, and I tend to own the parts that have to be right: auth and 2FA, payments, access control, and audit trails.",
   location: "Ghana",
   email: "snellmaxi6@gmail.com",
   resumeUrl: "/prince-sarfo-cv.pdf",
@@ -15,39 +15,20 @@ export const siteConfig = {
 
 export const skills = [
   {
-    category: "Frontend",
-    items: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "React Native",
-      "Expo",
-    ],
+    category: "Languages",
+    items: ["TypeScript", "JavaScript", "Python", "SQL"],
   },
   {
-    category: "Backend",
-    items: [
-      "Node.js",
-      "NestJS",
-      "REST APIs",
-      "GraphQL",
-      "Firebase",
-      "PostgreSQL",
-      "Drizzle",
-      "Knex",
-    ],
+    category: "Frontend & Mobile",
+    items: ["Next.js", "React", "React Native", "Expo", "Tauri"],
   },
   {
-    category: "Tools",
-    items: [
-      "Git",
-      "GitHub Actions",
-      "Netlify",
-      "DigitalOcean",
-      "Vercel",
-      "Figma",
-    ],
+    category: "Backend & Data",
+    items: ["NestJS", "FastAPI", "GraphQL", "PostgreSQL", "Redis", "BullMQ"],
+  },
+  {
+    category: "Infra & Tooling",
+    items: ["GitHub Actions", "Vercel", "AWS S3", "Paystack", "Firebase"],
   },
 ];
 
@@ -55,19 +36,17 @@ export const experiences = [
   {
     company: "Nyeova Systems",
     role: "Software Engineer",
-    period: "Oct 2024 - Present",
+    period: "Sep 2024 - Present",
     description:
-      "Building and shipping products across web and mobile - PigeonUltra (web & mobile app), PigeonFleet (rider app), PigeonUltra Admin dashboard, Pappysko (property listing platform), and OneMillion (cross-platform donation app). Working across the full stack from UI to API and CI/CD pipelines.",
+      "I build and own features across three flagship platforms and several client products, from NestJS and GraphQL APIs to React Native apps and Tauri desktop builds, and I lead the high-stakes work: payments and payouts, audit infrastructure, and access control.",
     tech: [
-      "Next.js",
-      "React Native",
-      "Expo",
-      "Firebase",
+      "NestJS",
       "GraphQL",
-      "TypeScript",
-      "Netlify",
-      "DigitalOcean",
-      "GitHub Actions",
+      "React Native",
+      "Tauri",
+      "PostgreSQL",
+      "Paystack",
+      "Next.js",
     ],
   },
   // {
@@ -100,8 +79,8 @@ export const projects = [
   {
     title: "OneMillion",
     description:
-      "Cross-platform donation platform (website, mobile app, and desktop app) enabling users to participate in charitable events.",
-    tech: ["Next.js", "React Native", "Expo"],
+      "Crowdfunding fintech platform (web, mobile, and Tauri desktop). I built the milestone payouts engine, a tamper-evident hash-chained audit log, and RBAC with two-factor auth, and shipped the mobile and desktop apps.",
+    tech: ["NestJS", "GraphQL", "React Native", "Tauri"],
     liveUrl: "#",
     githubUrl: null,
     featured: true,
@@ -109,23 +88,32 @@ export const projects = [
   {
     title: "Kuro",
     description:
-      "Web and mobile application for residential communities in Africa, enabling seamless community management.",
-    tech: ["Next.js", "React Native", "TypeScript"],
+      "Residential-community management platform for Africa. Lead developer of the Next.js web app and sole developer of the React Native app, with features on the FastAPI backend.",
+    tech: ["Next.js", "React Native", "FastAPI"],
     liveUrl: "https://kuro.weorg.ai/",
     githubUrl: null,
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=ai.weorg.kuro&hl=en",
     appStoreUrl: "https://apps.apple.com/us/app/kuro-mobile/id6775565414",
-    featured: false,
+    featured: true,
   },
   {
     title: "PigeonUltra",
     description:
-      "Migrated the PigeonUltra website to the latest Next.js with TypeScript. Implemented a blog, updated pages, and added forgot-password flow.",
-    tech: ["Next.js", "TypeScript", "React"],
+      "Logistics and delivery platform. On the team I led the admin portal's bulk-actions system, built an auto-save forms framework, and owned the Uber Direct delivery integration on the NestJS/GraphQL API.",
+    tech: ["Next.js", "Tauri", "NestJS", "GraphQL"],
     liveUrl: "https://pigeonultra.com/",
     githubUrl: null,
-    featured: false,
+    featured: true,
+  },
+  {
+    title: "Pappysko",
+    description:
+      "Property-listing marketplace. I owned the Google Maps property search, the listing lifecycle, and real-time chat with document attachments.",
+    tech: ["Next.js", "Google Maps", "Socket.IO", "PostgreSQL"],
+    liveUrl: "https://pappysko.com/",
+    githubUrl: null,
+    featured: true,
   },
   {
     title: "PigeonClient",
@@ -161,11 +149,20 @@ export const projects = [
     featured: false,
   },
   {
-    title: "Pappysko",
+    title: "Schoolpedia",
     description:
-      "Property listing web app with interactive Google Maps integration, document uploads in chat, and full auth flows including forgot-password, profile, and settings pages.",
-    tech: ["React", "Google Maps API", "Node.js"],
-    liveUrl: "https://pappysko.com/",
+      "Ghana's national school directory and accreditation registry: search, compare, and apply to verified schools, with interactive maps and profile claiming. I am sole author of its NestJS backend and discovery API.",
+    tech: ["Next.js", "NestJS", "Knex", "BullMQ", "Leaflet"],
+    liveUrl: "https://schoolpedia.edcomrade.com/",
+    githubUrl: null,
+    featured: false,
+  },
+  {
+    title: "Pioneers",
+    description:
+      "Multi-tenant school ERP for student records, admissions, scheduling, finance, HR, and day-to-day operations. I built the NestJS backend and ERP web modules.",
+    tech: ["Next.js", "NestJS", "Knex", "BullMQ", "Redis"],
+    liveUrl: "https://pioneers.edcomrade.com/",
     githubUrl: null,
     featured: false,
   },
@@ -188,39 +185,12 @@ export const projects = [
     featured: false,
   },
   {
-    title: "Schoolpedia",
-    description:
-      "Ghana's national school directory and accreditation registry, letting families search, compare, and apply to verified schools in one place. Features school discovery, interactive maps, comparison tools, and profile claiming for schools.",
-    tech: ["Next.js", "TypeScript", "NestJS", "BullMQ", "Tailwind CSS"],
-    liveUrl: "https://schoolpedia.edcomrade.com/",
-    githubUrl: null,
-    featured: false,
-  },
-  {
-    title: "Pioneers",
-    description:
-      "School management system giving administrators, educators, and staff a centralised platform to manage student records, enrolment, scheduling, and day-to-day institutional operations.",
-    tech: ["Next.js", "TypeScript", "NestJS", "BullMQ", "Tailwind CSS"],
-    liveUrl: "https://pioneers.edcomrade.com/",
-    githubUrl: null,
-    featured: false,
-  },
-  {
     title: "UniKonnect",
     description:
-      "Final year project - a mobile app facilitating coordination and communication of events on campus. Integrated Firebase for auth and real-time database, and Paystack for seamless ticket payments.",
+      "Final year project: a mobile app facilitating coordination and communication of events on campus. Integrated Firebase for auth and real-time database, and Paystack for seamless ticket payments.",
     tech: ["Flutter", "Firebase", "Paystack"],
     liveUrl: "#",
     githubUrl: "https://github.com/Prince-Sarfo/event-hub",
-    featured: false,
-  },
-  {
-    title: "SafePing",
-    description:
-      "Full-stack emergency safety app with OTP auth, real-time location sharing, and trusted contact alerts. Secure REST API with CSRF protection, JWT auth, and Expo push notifications on iOS and Android.",
-    tech: ["React Native", "Node.js", "JWT", "Expo", "Mnotify"],
-    liveUrl: "#",
-    githubUrl: null,
     featured: false,
   },
 ];
@@ -236,7 +206,7 @@ export const education = [
   },
   {
     institution: "Asanteman Senior High School",
-    degree: "W.A.S.S.C.E - General Science",
+    degree: "W.A.S.S.C.E, General Science",
     period: "Oct 2016 - Jun 2019",
     location: "Kumasi, Ghana",
   },
